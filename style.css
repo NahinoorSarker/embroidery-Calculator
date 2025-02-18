@@ -1,6 +1,8 @@
+/* Ultraweave Themed Calculator Website */
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #1e1e1e;
+    background-color: #000;
     color: #fff;
     text-align: center;
     margin: 0;
@@ -8,39 +10,54 @@ body {
 }
 
 .container {
-    max-width: 500px;
-    background: #2a2a2a;
+    max-width: 450px;
+    background: #1e1e1e;
     padding: 20px;
     margin: 50px auto;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0px 0px 15px rgba(0, 174, 239, 0.5);
 }
 
 input, select, button {
-    width: 100%;
+    width: 96%;
     padding: 10px;
     margin: 5px 0;
-    border: 1px solid #555;
-    border-radius: 5px;
+    border: 1px solid #00AEEF;
+    border-radius: 15px;
     background: #333;
     color: #fff;
 }
 
 button {
-    background-color: #4CAF50;
+    background-color: #00AEEF;
     border: none;
     font-size: 16px;
+    width: 101%;
     cursor: pointer;
+    transition: background 0.3s;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #0088CC;
 }
 
-h2, h3, h4 {
-    color: #f4f4f4;
+h2, h3 {
+    color: #00AEEF;
 }
 
-p {
-    font-size: 18px;
+/* Enhanced UI Effects */
+.container:hover {
+    box-shadow: 0px 0px 20px rgba(0, 174, 239, 0.8);
+}
+h1{
+    color: #ecfefe; 
+    background-image: linear-gradient(270deg, #ecfefe 50%, #42b8b8 50%); 
+    background-clip: text; 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent;  
+}
+input:focus, select:focus {
+    outline: none;
+    border-color: #00AEEF;
+    box-shadow: 0px 0px 10px rgba(0, 174, 239, 0.7);
 }
