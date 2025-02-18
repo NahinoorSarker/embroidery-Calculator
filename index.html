@@ -14,6 +14,7 @@
         <select id="calcType" onchange="toggleFields()">
             <option value="stitch">Stitch Based</option>
             <option value="yard">Yard Based</option>
+            <option value="multiple">Multiple Items</option>
         </select>
 
         <!-- Stitch Options -->
@@ -47,6 +48,28 @@
             <input type="number" id="yardCount" placeholder="Enter total yards">
         </div>
 
+        <!-- Multiple Items Fields -->
+        <div id="multipleFields" style="display: none;">
+            <h3>Multiple Items Stitch Count</h3>
+            <div id="stitchInputs">
+                <label>Neck Stitch per Piece:</label>
+                <input type="number" class="stitchInput" value="0">
+
+                <label>Sleeve Stitch per Piece:</label>
+                <input type="number" class="stitchInput" value="0">
+
+                <label>Body Stitch per Piece:</label>
+                <input type="number" class="stitchInput" value="0">
+
+                <label>Panel Stitch per Piece:</label>
+                <input type="number" class="stitchInput" value="0">
+            </div>
+            <button onclick="addStitchField()">+ Add More Stitch</button>
+
+            <label for="totalPieces">Total Pieces:</label>
+            <input type="number" id="totalPieces" placeholder="Enter total pieces">
+        </div>
+
         <label for="rate">Rate per 1,000 Stitches (৳):</label>
         <input type="number" id="rate" value="0.80" step="0.01">
 
@@ -62,6 +85,7 @@
         <button onclick="calculate()">Calculate</button>
 
         <h3>Results:</h3>
+        <p id="pieceStitchResult"></p>
         <p id="costResult"></p>
         <p id="timeResult"></p>
         <p id="shiftResult"></p>
