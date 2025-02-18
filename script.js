@@ -1,13 +1,16 @@
+// Function to show/hide input fields based on selected option
 function toggleFields() {
     let calcType = document.getElementById("calcType").value;
     document.getElementById("multipleFields").style.display = (calcType === "multiple") ? "block" : "none";
 }
 
+// Function to get numeric input values safely
 function getInputValue(id) {
     let value = parseFloat(document.getElementById(id).value);
     return isNaN(value) || value < 0 ? 0 : value;
 }
 
+// Function to auto-calculate total stitch per piece
 function calculateTotalStitch() {
     let neck = getInputValue("neckStitch");
     let sleeve = getInputValue("sleeveStitch");
@@ -23,6 +26,7 @@ function calculateTotalStitch() {
     document.getElementById("totalStitch").value = totalStitch; // Hidden value for calculation
 }
 
+// Main calculation function
 function calculate() {
     let calcType = document.getElementById("calcType").value;
     let rate = getInputValue("rate");
@@ -32,7 +36,7 @@ function calculate() {
     let stitchCount = 0;
 
     if (calcType === "multiple") {
-        stitchCount = parseFloat(document.getElementById("totalStitch").value) || 0;
+        stitchCount = getInputValue("totalStitch");
     }
 
     if (stitchCount <= 0) {
