@@ -14,10 +14,7 @@ function toggleStitchFields() {
 
 function addStitchField() {
     let div = document.createElement("div");
-    div.innerHTML = `
-        <label>Extra Stitch per Piece:</label>
-        <input type="number" class="stitchInput" value="0">
-    `;
+    div.innerHTML = `<label>Extra Stitch per Piece:</label><input type="number" class="stitchInput" value="0">`;
     document.getElementById("stitchInputs").appendChild(div);
 }
 
@@ -32,21 +29,16 @@ function calculate() {
     let machineSpeed = getInputValue("machineSpeed");
     let headCount = getInputValue("headCount");
     let efficiency = getInputValue("efficiency") / 100;
-
     let stitchCount = 0;
 
     if (calcType === "multiple") {
         let totalPieces = getInputValue("totalPieces");
         let stitchInputs = document.querySelectorAll(".stitchInput");
         let totalStitchPerPiece = 0;
-
-        stitchInputs.forEach(input => {
-            totalStitchPerPiece += getInputValue(input.id);
-        });
-
+        stitchInputs.forEach(input => totalStitchPerPiece += getInputValue(input.id));
         stitchCount = totalStitchPerPiece * totalPieces;
         document.getElementById("pieceStitchResult").innerText = `Total Stitch per Piece: ${totalStitchPerPiece}`;
-    } 
+    }
 
     if (stitchCount <= 0) {
         alert("Please enter a valid stitch count!");
@@ -59,6 +51,6 @@ function calculate() {
     let totalShifts = totalHours / 12;
 
     document.getElementById("costResult").innerText = `Total Cost: ৳${totalCost.toFixed(2)}`;
-    document.getElementById("timeResult").innerText = `Total Time: ${totalTime.toFixed(2)} minutes (${totalHours.toFixed(2)} hours)`;
+    document.getElementById("timeResult").innerText = `Total Time: ${totalTime.toFixed(2)} min (${totalHours.toFixed(2)} hrs)`;
     document.getElementById("shiftResult").innerText = `Shifts Required (12-hour): ${totalShifts.toFixed(2)}`;
 }
