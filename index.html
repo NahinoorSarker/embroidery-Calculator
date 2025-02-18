@@ -9,19 +9,29 @@
 <body>
     <div class="container">
         <h2>Embroidery Calculator</h2>
-        
+
         <label for="calcType">Select Calculation Type:</label>
         <select id="calcType" onchange="toggleFields()">
             <option value="stitch">Stitch Based</option>
-            <option value="piece">Piece Based</option>
             <option value="yard">Yard Based</option>
         </select>
 
-        <div id="stitchFields">
+        <!-- Stitch Options -->
+        <div id="stitchOptions" style="display: none;">
+            <label for="stitchMethod">Select Stitch Method:</label>
+            <select id="stitchMethod" onchange="toggleStitchFields()">
+                <option value="total">Total Stitch</option>
+                <option value="piece">Stitch per Piece</option>
+            </select>
+        </div>
+
+        <!-- Total Stitch Fields -->
+        <div id="totalStitchFields" style="display: none;">
             <label for="stitchCount">Total Stitch Count:</label>
             <input type="number" id="stitchCount" placeholder="Enter total stitches">
         </div>
 
+        <!-- Stitch Per Piece Fields -->
         <div id="pieceFields" style="display: none;">
             <label for="stitchPerPiece">Stitches per Piece:</label>
             <input type="number" id="stitchPerPiece" placeholder="Enter stitches per piece">
@@ -29,6 +39,7 @@
             <input type="number" id="pieceCount" placeholder="Enter total pieces">
         </div>
 
+        <!-- Yard Fields -->
         <div id="yardFields" style="display: none;">
             <label for="stitchPerYard">Stitches per Yard:</label>
             <input type="number" id="stitchPerYard" placeholder="Enter stitches per yard">
