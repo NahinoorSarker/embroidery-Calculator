@@ -17,7 +17,7 @@
             <option value="multiple">Multiple Items</option>
         </select>
 
-        <!-- Stitch Options -->
+        <!-- Stitch Based Options -->
         <div id="stitchOptions" style="display: none;">
             <label for="stitchMethod">Select Stitch Method:</label>
             <select id="stitchMethod" onchange="toggleStitchFields()">
@@ -26,13 +26,11 @@
             </select>
         </div>
 
-        <!-- Total Stitch Fields -->
         <div id="totalStitchFields" style="display: none;">
             <label for="stitchCount">Total Stitch Count:</label>
             <input type="number" id="stitchCount" placeholder="Enter total stitches">
         </div>
 
-        <!-- Stitch Per Piece Fields -->
         <div id="pieceFields" style="display: none;">
             <label for="stitchPerPiece">Stitches per Piece:</label>
             <input type="number" id="stitchPerPiece" placeholder="Enter stitches per piece">
@@ -40,7 +38,7 @@
             <input type="number" id="pieceCount" placeholder="Enter total pieces">
         </div>
 
-        <!-- Yard Fields -->
+        <!-- Yard Based -->
         <div id="yardFields" style="display: none;">
             <label for="stitchPerYard">Stitches per Yard:</label>
             <input type="number" id="stitchPerYard" placeholder="Enter stitches per yard">
@@ -48,7 +46,7 @@
             <input type="number" id="yardCount" placeholder="Enter total yards">
         </div>
 
-        <!-- Multiple Items Fields -->
+        <!-- Multiple Items -->
         <div id="multipleFields" style="display: none;">
             <h3>Multiple Items Stitch Count</h3>
             <div id="stitchInputs">
@@ -70,6 +68,7 @@
             <input type="number" id="totalPieces" placeholder="Enter total pieces">
         </div>
 
+        <!-- Common Fields -->
         <label for="rate">Rate per 1,000 Stitches (৳):</label>
         <input type="number" id="rate" value="0.80" step="0.01">
 
