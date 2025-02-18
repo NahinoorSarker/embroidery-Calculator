@@ -17,55 +17,28 @@
             <option value="multiple">Multiple Items</option>
         </select>
 
-        <!-- Stitch Based Options -->
-        <div id="stitchOptions" style="display: none;">
-            <label for="stitchMethod">Select Stitch Method:</label>
-            <select id="stitchMethod" onchange="toggleStitchFields()">
-                <option value="total">Total Stitch</option>
-                <option value="piece">Stitch per Piece</option>
-            </select>
-        </div>
-
-        <div id="totalStitchFields" style="display: none;">
-            <label for="stitchCount">Total Stitch Count:</label>
-            <input type="number" id="stitchCount" placeholder="Enter total stitches">
-        </div>
-
-        <div id="pieceFields" style="display: none;">
-            <label for="stitchPerPiece">Stitches per Piece:</label>
-            <input type="number" id="stitchPerPiece" placeholder="Enter stitches per piece">
-            <label for="pieceCount">Total Pieces:</label>
-            <input type="number" id="pieceCount" placeholder="Enter total pieces">
-        </div>
-
-        <!-- Yard Based -->
-        <div id="yardFields" style="display: none;">
-            <label for="stitchPerYard">Stitches per Yard:</label>
-            <input type="number" id="stitchPerYard" placeholder="Enter stitches per yard">
-            <label for="yardCount">Total Yards:</label>
-            <input type="number" id="yardCount" placeholder="Enter total yards">
-        </div>
-
         <!-- Multiple Items -->
         <div id="multipleFields" style="display: none;">
             <h3>Multiple Items Stitch Count</h3>
-            <div id="stitchInputs">
-                <label>Neck Stitch per Piece:</label>
-                <input type="number" class="stitchInput" value="0">
+            <label>Neck Stitch per Piece:</label>
+            <input type="number" class="stitchInput" id="neckStitch" placeholder="Enter neck stitch" oninput="calculateTotalStitch()">
 
-                <label>Sleeve Stitch per Piece:</label>
-                <input type="number" class="stitchInput" value="0">
+            <label>Sleeve Stitch per Piece:</label>
+            <input type="number" class="stitchInput" id="sleeveStitch" placeholder="Enter sleeve stitch" oninput="calculateTotalStitch()">
 
-                <label>Body Stitch per Piece:</label>
-                <input type="number" class="stitchInput" value="0">
+            <label>Body Stitch per Piece:</label>
+            <input type="number" class="stitchInput" id="bodyStitch" placeholder="Enter body stitch" oninput="calculateTotalStitch()">
 
-                <label>Panel Stitch per Piece:</label>
-                <input type="number" class="stitchInput" value="0">
-            </div>
-            <button onclick="addStitchField()">+ Add More Stitch</button>
+            <label>Panel Stitch per Piece:</label>
+            <input type="number" class="stitchInput" id="panelStitch" placeholder="Enter panel stitch" oninput="calculateTotalStitch()">
+
+            <label>Extra Stitch per Piece:</label>
+            <input type="number" class="stitchInput" id="extraStitch" placeholder="Enter extra stitch" oninput="calculateTotalStitch()">
+
+            <h4>Total Stitch per Piece: <span id="totalStitchPerPiece">0</span></h4>
 
             <label for="totalPieces">Total Pieces:</label>
-            <input type="number" id="totalPieces" placeholder="Enter total pieces">
+            <input type="number" id="totalPieces" placeholder="Enter total pieces" oninput="calculateTotalStitch()">
         </div>
 
         <!-- Common Fields -->
@@ -84,7 +57,6 @@
         <button onclick="calculate()">Calculate</button>
 
         <h3>Results:</h3>
-        <p id="pieceStitchResult"></p>
         <p id="costResult"></p>
         <p id="timeResult"></p>
         <p id="shiftResult"></p>
