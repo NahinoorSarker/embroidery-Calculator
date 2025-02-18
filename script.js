@@ -1,32 +1,46 @@
 function toggleFields() {
     let calcType = document.getElementById("calcType").value;
-    document.getElementById("stitchFields").style.display = (calcType === "stitch") ? "block" : "none";
-    document.getElementById("pieceFields").style.display = (calcType === "piece") ? "block" : "none";
+    document.getElementById("stitchOptions").style.display = (calcType === "stitch") ? "block" : "none";
     document.getElementById("yardFields").style.display = (calcType === "yard") ? "block" : "none";
+    toggleStitchFields();
+}
+
+function toggleStitchFields() {
+    let stitchMethod = document.getElementById("stitchMethod").value;
+    document.getElementById("totalStitchFields").style.display = (stitchMethod === "total") ? "block" : "none";
+    document.getElementById("pieceFields").style.display = (stitchMethod === "piece") ? "block" : "none";
+}
+
+function getInputValue(id) {
+    let value = parseFloat(document.getElementById(id).value);
+    return isNaN(value) || value < 0 ? 0 : value;
 }
 
 function calculate() {
     let calcType = document.getElementById("calcType").value;
-    let rate = parseFloat(document.getElementById("rate").value);
-    let machineSpeed = parseFloat(document.getElementById("machineSpeed").value);
-    let headCount = parseFloat(document.getElementById("headCount").value);
-    let efficiency = parseFloat(document.getElementById("efficiency").value) / 100;
-    
+    let rate = getInputValue("rate");
+    let machineSpeed = getInputValue("machineSpeed");
+    let headCount = getInputValue("headCount");
+    let efficiency = getInputValue("efficiency") / 100;
+
     let stitchCount = 0;
 
     if (calcType === "stitch") {
-        stitchCount = parseFloat(document.getElementById("stitchCount").value);
-    } else if (calcType === "piece") {
-        let stitchPerPiece = parseFloat(document.getElementById("stitchPerPiece").value);
-        let pieceCount = parseFloat(document.getElementById("pieceCount").value);
-        stitchCount = stitchPerPiece * pieceCount;
+        let stitchMethod = document.getElementById("stitchMethod").value;
+        if (stitchMethod === "total") {
+            stitchCount = getInputValue("stitchCount");
+        } else if (stitchMethod === "piece") {
+            let stitchPerPiece = getInputValue("stitchPerPiece");
+            let pieceCount = getInputValue("pieceCount");
+            stitchCount = stitchPerPiece * pieceCount;
+        }
     } else if (calcType === "yard") {
-        let stitchPerYard = parseFloat(document.getElementById("stitchPerYard").value);
-        let yardCount = parseFloat(document.getElementById("yardCount").value);
+        let stitchPerYard = getInputValue("stitchPerYard");
+        let yardCount = getInputValue("yardCount");
         stitchCount = stitchPerYard * yardCount;
     }
 
-    if (isNaN(stitchCount) || stitchCount <= 0) {
+    if (stitchCount <= 0) {
         alert("Please enter a valid stitch count!");
         return;
     }
